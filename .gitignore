@@ -10,9 +10,6 @@
 !.yarn/releases
 !.yarn/versions
 
-products.ts
-posts.ts
-
 # testing
 /coverage
 
