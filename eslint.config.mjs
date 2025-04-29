@@ -1,16 +1,18 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
+// eslint.config.mjs
+import eslintPluginNext from '@next/eslint-plugin-next';
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    plugins: {
+      '@next/next': eslintPluginNext,
+    },
+    rules: {
+      ...eslintPluginNext.configs.recommended.rules,
+      '@next/next/no-img-element': 'off',
+      // '@next/next/no-document-import-in-page': 'off', // Disable this rule
+    },
+  },
+  // Add any other ESLint configurations or overrides below this line
 ];
 
 export default eslintConfig;
