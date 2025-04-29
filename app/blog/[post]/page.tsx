@@ -1,6 +1,6 @@
 import { Metadata, ResolvingMetadata } from 'next';
 import { getPost, getPostSlugs, getAllPosts } from "@/lib/shopifyPosts";
-import PostSection from "@/blog/components/PostDetails";
+import PostDetails from "@/blog/components/PostDetails";
 import { notFound } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import { Post } from '@/shared/types/blog';
@@ -70,7 +70,7 @@ export default async function PostPage({ params }: PostPageProps) {
   return (
     <div>
         <div className="min-h-screen py-12 sm:pt-20">
-            <PostSection postData={currentPost} />
+            <PostDetails postData={currentPost} />
         </div>
 
         {similarPosts.length > 0 && (
